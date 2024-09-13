@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% translate "Bartolome Real State" %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/mad.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <meta name="keywords" content="real estate, alquiler viviendas, alquiler pisos, venta viviendas, venta pisos" />
+</head>
+
+<!-- Google tag (gtag.js) -->
+
+<body>
+    <header>
+        <div id="top-bar">
+            <div id="logo"><img src="{% static 'img/rs-logo1.jpg' %}"></div>
+            <div id="top-bar-left">
+                <div class="top-bar-item">Sample content</div>
+                <div class="top-bar-item">Sample content</div>
+                <div class="top-bar-item">Sample content</div>
+            </div>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center">
+        <img src="{% static 'img/wc1.jpg' %}" alt="logo">
+    </footer>
+    {% block footercontent %}
+    {% endblock %}
+</body>
+</html>
+

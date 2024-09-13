@@ -1,0 +1,108 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% translate "Bartolome Real State" %}</title>
+<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'css/mad.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+<style>
+body,h2,h3,h4,h5,h6 {font-family: 'Lato', serif}
+h1 {font-family: 'Lato', cursive}
+.w3-bar,#sha-menu,button {font-family: 'Lato', serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<meta name="keywords" content="real estate, alquiler viviendas, alquiler pisos, venta viviendas, venta pisos" />
+</head>
+
+<!-- Google tag (gtag.js) -->
+
+<body>
+
+  <!-- Header -->
+<header class="w3-container w3-center">
+  <h1 class="w3-margin w3-jumbo">{% translate "Bartolome Real Estate" %}</h1>
+  <p class="w3-large">{% translate "Compraventa y alquiler de inmuebles" %}</p>
+  <div id="background-image" class="w3-container">
+    <div class="space-30"></div>
+    <div class="w3-center w3-row">
+      <div class="w3-col">
+        <div id="sale-btn" class="w3-btn">{% translate "Comprar" %}</div>
+        <div id="rent-btn" class="w3-btn">{% translate "Alquilar" %}</div>
+        <div id="room-btn" class="w3-btn">{% translate "Habitaciones" %}</div>
+      </div>
+      <div id="search-box" class="w3-col">
+        <label for="search-input">{% translate "Address" %}</label>
+        <input type="text" id="search-input"/>
+      </div>
+    </div>
+    <div class="space-30"></div>
+  </div>
+
+
+  <div class="space-30"></div>
+
+<!-- Navbar -->
+  <div class="w3-center">
+    <div id="sha-menu" class="green1 w3-card w3-left-align w3-large text-black">
+      <a id="toggle-menu-link" class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="toggleButton()" title="Toggle Navigation Menu">Menu &nbsp;<i class="fa fa-bars"></i></a>
+      <a id="twots" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large green2-hover">Chamanismo</a>
+      <a id="kkc" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large green2-hover">Kurikindi Kawsay</a>
+      <a id="ceremonies" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large green2-hover">Ceremonias</a>
+      <a id="training" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large green2-hover">Formación</a>
+      <a id="project" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large green2-hover">Proyecto</a>
+      <a id="contact" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large green2-hover">Contacto</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="green1 w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a id="twots" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-padding-large green2-hover">Chamanismo</a>
+      <a id="kkc" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-padding-large green2-hover">Kurikindi Kawsay</a>
+      <a id="ceremonies" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-padding-large green2-hover">Ceremonias</a>
+      <a id="training" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-padding-large green2-hover">Formación</a>
+      <a id="project" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-padding-large green2-hover">Proyecto</a>
+      <a id="contact" href="{% url 'mad:index' %}" class="w3-bar-item w3-button w3-padding-large green2-hover">Contacto</a>
+    </div>
+  </div>
+
+</header>
+{% block content %}
+{% endblock %}
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center">
+  <img src="{% static 'img/wc1.jpg' %}" alt="logo">
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleButton() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+function activateTab() {
+  var activeTab = document.getElementById("{{ active_tab }}");
+    if (activeTab.className.indexOf("green3") == -1) {
+    activeTab.className += " green3";
+  } else {
+    activeTab.className = activeTab.className.replace(" green3", " green3");
+  }
+}
+activateTab();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+body{font-family: 'Lato', serif}
+
+div{border:1px solid}
+#background-image-index{background: url("/static/img/rs1.1.jpg") 20% 0 no-repeat fixed;
+  min-height:600px;display:flex;align-items:center;justify-content:center;}
+
+#top-bar{width:100%;overflow:auto;vertical-align:middle;display:flex;align-items:center;
+  justify-content:space-between}
+#top-bar-left{float:right;height:50%}
+#logo{float:left}
+.top-bar-item{float:right}
+
+#search-box-container{width:80%;background-color:#fff;display:flex;align-items:center;
+  justify-content:center; min-height:100px;}
+
+.index-btn{margin:10px;}
+#search-address{margin:10px}

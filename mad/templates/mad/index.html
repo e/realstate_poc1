@@ -1,0 +1,16 @@
+{% extends "mad/base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+<div class="container" id="background-image-index">
+  <div id="search-box-container">
+    <div class="index-btn">{% translate "Comprar" %}</div>
+    <div class="index-btn">{% translate "Alquilar" %}</div>
+    <div class="index-btn">{% translate "Compartir" %}</div>
+    <input type="text" id="search-address">
+    <input type="button" id="search-address-button" value="{% translate 'search' %}">
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Google Maps API</title>
+</head>
+<body>
+
+ <h1>Google Maps API</h1>
+
+ <div id="map" class="map" ></div>
+
+<!-- paste your API key here -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly" defer></script>  
+  <script>
+  function initMap() {
+      // The location of Colombo
+      var colombo = { lat: 6.927079, lng: 79.861244 };      
+      
+      // The map, centered at Colombo
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: colombo,
+        draggable:true              
+      });
+     
+     //adding the marker
+      var marker = new google.maps.Marker({
+        position: colombo,
+        map: map,
+        draggable:false         
+      });
+    
+      marker.setMap(map);        
+   }
+  </script>
+</body>
+
+<style type="text/css">
+ h1{
+    text-align: center;
+ }
+ .map{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 450px;
+    border: 0;
+ }
+</style>
+</html>

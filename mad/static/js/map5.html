@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% translate "Bartolome Real State" %}</title>
+  </head>
+  <body>
+XXXX
+ <h1>Google Maps API</h1>
+
+    <div id="map" class="map"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=drawing&callback=initMap" defer>
+</script>
+  <script>
+  function initMap() {
+      // The location of Colombo
+      var colombo = { lat: 6.927079, lng: 79.861244 };
+
+      // The map, centered at Colombo
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: colombo,
+        draggable:true
+      });
+
+     //adding the marker
+      var marker = new google.maps.Marker({
+        position: colombo,
+        map: map,
+        draggable:false
+      });
+
+      marker.setMap(map);
+   }
+  </script>
+
+    <div id="panel">
+      <p>Hold down shift to draw a rectangle and show the latlong bounds in this panel. <br/>Alternatively use the buttons on the top-left of the map! </p>
+      <b>Is marker inside Path/Bounds:</b><p id="inside">...</p>
+      <b>Bounds:</b><p id="bounds">...</p>
+    </div>
+
+  </body>
+<style type="text/css">
+ h1{
+    text-align: center;
+ }
+ .map{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 450px;
+    border: 0;
+ }
+</style>
+</html>
