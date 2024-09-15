@@ -1,35 +1,17 @@
-{% extends "mad/base.html" %}
-{% load i18n %}
-{% load static %}
-{% block content %}
+<!doctype html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <title>Place Autocomplete</title>
 
-<div class="space-30"></div>
-
-<div class="container" id="bg-index">
-  <div id="search-form-container">
-      <form id="index-form" action="{% url 'mad:rent' %}" method="get" onkeydown="return event.key != 'Enter';">
-        <div class="fieldWrapper" id="wrapper-search-type">
-          {{ form.search_type.as_field_group }}
-        </div>
-        <div class="fieldWrapper">
-          {{ form.address.errors }}
-          <label for="{{ form.address.id_for_label }}">{% translate "Direccion" %}</label><br />
-          {{ form.address }}
-        </div>
-        <fieldset>
-          <input type="submit" value="{% translate 'Buscar' %}" style="float:right">
-          <!--button value="{% translate 'Buscar' %}" style="float:right">{% translate 'Buscar' %}</button-->
-        </fieldset>
-        <fieldset>
-          {{ form.latitude }}
-          {{ form.longitude }}
-        </fieldset>
-      </form>
-  </div>
-</div>
-
-hello
-
+    <script type="module" crossorigin src="./assets/index-DhoNDP9S.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CprSWCyU.css">
+  </head>
+  <body>
     <div class="pac-card" id="pac-card">
       <div>
         <div id="title">Autocomplete search</div>
@@ -70,14 +52,22 @@ hello
         <input id="pac-input" type="text" placeholder="Enter a location" />
       </div>
     </div>
-    <div id="map" style="min-height:400px;min-width:400px"></div>
+    <div id="map"></div>
     <div id="infowindow-content">
       <span id="place-name" class="title"></span><br />
       <span id="place-address"></span>
     </div>
-{% endblock content %}
 
-{% block afterfooter %}
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmZWJ_ghW10uh_Q7WszVOMOu6J5GOed50&libraries=places"></script>
-  <script src="{% static 'js/index_autocomplete.js' %}"></script>
-{% endblock afterfooter %}
+    <!-- 
+      The `defer` attribute causes the script to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises. See
+      https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmZWJ_ghW10uh_Q7WszVOMOu6J5GOed50&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
